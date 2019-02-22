@@ -14,7 +14,7 @@ tags:
 - 使用 tree 命令可以查看 .git 目录，其中 HEAD 为指向 master 的指针
 <!--more-->
 
-![gitInit.png](//video.jirengu.com/xdml/image/8beac5ce-6d1c-4fda-a375-033b1924edcd/2019-2-22-13-11-46.png)
+![gitAdd.jpeg](//raw.githubusercontent.com/CelesteWeng/images/master/gitInit.jpeg)
 
 ### git add
 
@@ -22,11 +22,15 @@ tags:
 - 此时查看 .git 目录，相比执行完 git init 时，多了 index 文件，objects 目录也增加了 b1 子目录
 - 大批量的操作文件时，可使用参数 -A -U，或 git add .
 
-![gitAdd.jpeg](//video.jirengu.com/xdml/file/8beac5ce-6d1c-4fda-a375-033b1924edcd/2019-2-22-15-53-17.jpeg)
+![gitAdd.jpeg](//raw.githubusercontent.com/CelesteWeng/images/master/gitAdd.jpeg)
 
 ### git commit -v
 
+- 当暂存区有内容时，执行该命令会进入 vim ，罗列未跟踪的文件和已提交的文件，同时展示已提交的文件相比之前的改动
+- 执行过 git commit 命令后，.git 目录中会增加 COMMIT_EDITMSG 文件
+- git commit -m "提交信息" 可提交暂存区文件
 
+![gcv.jpeg](//raw.githubusercontent.com/CelesteWeng/images/master/gcv.jpeg)
 
-
+![gcv2.png](//raw.githubusercontent.com/CelesteWeng/images/master/gcv2.png)
 
