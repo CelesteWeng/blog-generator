@@ -1,9 +1,7 @@
 ---
 title: HTTP
 date: 2019-02-24 13:36:47
-tags:
- - 请求
- - 响应
+tags: HTTP
 ---
 
 ## HTTP 请求
@@ -23,6 +21,7 @@ User-Agent: curl/7.54.0
 Accept: */*
 aaa: bbb
 ```
+<!--more-->
 
 命令
 
