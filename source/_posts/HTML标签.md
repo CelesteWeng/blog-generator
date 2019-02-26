@@ -12,7 +12,7 @@ tags: HTML
 
 1. `name` 属性可以和 a 标签配合使用
 2. 使用 `frameborder="0"` 去掉元素边框
-3. 相当新开一个窗口，用起来卡，过时
+3. 相当新开一个窗口，用起来卡
 4. `src` 可以写相对路径
 
 <!-- more -->
@@ -21,7 +21,7 @@ tags: HTML
 
 跳转页面（HTTP GET 请求）
 
-更多属性见 >> <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/a" target="_blank">MDN</a>
+<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/a" target="_blank">a 的更多属性见 >> MDN</a>
 
 1. target 属性（结合 iframe 理解）
    - `_self`：在当前页面打开（默认）
@@ -50,7 +50,7 @@ tags: HTML
 
 跳转页面（HTTP POST 请求）
 
-更多属性见 >> <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/form" target="_blank">MDN</a>
+<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/form" target="_blank">form 的更多属性见 >> MDN</a>
 
 1. 和 a 标签的区别是发起请求的类型不同。action 类似于 href，target 和 a标签的一样
 2. GET 请求：表单信息变成查询参数，会出现在 url 里，请求头中无法有第四部分（Form Data）；
@@ -115,9 +115,10 @@ tags: HTML
 | 设置大小 | (CSS  width/height) or (col/rows  不准，一般不用) |
 
 ## table 标签示例
+
 用于展示数据
 
-属性见：https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/table
+<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/table" target="_blank">input 的更多属性>></a>
 
 1. HTML 规定 `<table>` 中只可以有3个元素：`<thead> <tbody> <tfoot>`
 2. tbody 标签不写，浏览器会自动补上
@@ -162,4 +163,4 @@ tags: HTML
 </table>
 ```
 
-<a href="http://www.w3school.com.cn/html5/html5_reference.asp" title="HTML 5 参考手册">HTML5 标签</a>
+<a href="http://www.w3school.com.cn/html5/html5_reference.asp" title="HTML 5 参考手册">HTML5 新标签 完整列表>></a>
