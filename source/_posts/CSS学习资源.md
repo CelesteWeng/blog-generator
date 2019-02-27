@@ -25,3 +25,5 @@ tags: CSS
 6. 一种 CSS 处理程序
 
 - 各种形状 https://css-tricks.com/the-shapes-of-css/
+- 生成渐变色 Google: CSS gradient generator
+- 生成阴影 Google：CSS shadow generator
