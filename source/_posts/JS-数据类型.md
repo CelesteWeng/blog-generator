@@ -12,6 +12,7 @@ tags:
 - 1992年，同事发明了  CSS
 - 1993年，李爵士 创办了 W3C
 - 1995年，网景 Netscape（公司） -> Navigator（浏览器） 支持脚本，之前只支持 HTML + CSS
+<!-- more -->
 - JS 之父：Brendan Eich，JS 最初叫 Mocha -> liveScript -> JavaScript，10天完成了设计
 - 网景和 Sun 公司（发明 java）达成协议，JS 和 Java 一起发布
 - 此时 JS 还缺少很多模块，编码有问题，Unicode 在之后才发布了 UTF-8
@@ -25,8 +26,6 @@ tags:
 - ECMAScript 4 死了，ECMAScript 5 做了小升级，步子太小
 - ES6：Rails 社区 Ruby —— CoffeeScript，JS 改良版。类，箭头函数
 - ES5 不兼容 IE7，ES 6 不兼容 IE8
-
-<!-- more -->
 
 ## 二、7种数据类型
 
@@ -90,7 +89,13 @@ tags:
  - `if ("222") { console.log('代码执行到此处') }` 实际上打印的代码不会执行，<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness#Loose_equality_using" target="_blank">MDN 对于宽松相等有表格总结</a>，"222" -> 222，true -> 1，222 != 1；<br>建议：<br>（1）== 两端有 `true` 和 `false`，千万不要使用 == <br>（2）== 两端有 `[]`、`""`，或者 `0`，尽量不要使用 ==
   
 ### 4. Symbol(符号)
-   
+  Symbol 生成一个全局唯一的值。Symbol 的值和名字没有关系。
+  ```
+  var a1 = Symbol('a')
+  var a2 = Symbol('a')
+  a1 !== a2 // true
+  ```
+
 ### 5. Null(对象)
  - 要保存对象的变量还没真正保存对象，空对象指针
  - 调用 typeof null 会返回"object"
@@ -100,4 +105,18 @@ tags:
   
 ### 7. Object 对象
 
+ - key 不加引号，要遵守标识符的规则: <br>（1）不能数字开头；（2）不能有空格；（3）合法字符
+ - key 符合标识符的情况下可用 `obj.key`，其余 `obj['key']`
+ - `delete obj['key']` 删除 key，`obj['key'] = undefined` 只是将值置为 undefined
+
+## typeof 操作符  
+"undefined"——如果这个值未定义;
+"boolean"——如果这个值是布尔值;
+"number"——如果这个值是数值;
+"object"——如果这个值是对象或 `null`;
+"function"——如果这个值是函数。 // function 不在7种类型中
+
+调用 typeof null 会返回"object"，因为特殊值 null 被认为是一个空的对象引用。 
+
+Safari 5 及之前版本、Chrome 7 及之 前版本在对正则表达式调用 typeof 操作符时会返回"function"，而其他浏览器在这种情况下会返回 "object"。
 
