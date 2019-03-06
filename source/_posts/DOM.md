@@ -5,7 +5,9 @@ tags:
 - 心痛
 ---
 
-详细说太烦了，知道有这么个功能就行，要用就去 Google or <a href="https://wangdoc.com/javascript/dom/index.html" target="_blank">JavaScript 教程 / DOM</a>
+知道有这么个功能就行，详情见 Google or <a href="https://wangdoc.com/javascript/dom/index.html" target="_blank">JavaScript 教程 / DOM</a>
+
+<!-- more -->
 
 # 概述
 
@@ -130,7 +132,7 @@ mdwoyaokantule
       - styleSheets：文档内嵌或引入的样式表集合。
       - 小结：除了document.styleSheets，别的都返回 HTMLCollection 实例。
 
-我挂了，这篇博客先太监吧，IDE 你要学会自己写代码
+我挂了，这篇博客先太监吧，IDE 你要学会自己写代码呀
 
     - 文档静态信息属性：
     - 文档状态属性：
