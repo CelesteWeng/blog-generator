@@ -49,7 +49,7 @@ DOM 树：节点按所在层级，抽象成树状结构。
     - **nodeType**：整数，节点类型。(文档-9，元素-1，属性-2，文本-3，文档片断-11，文档类型-10，注释-8），有对应常量(e.g.,Node.DOCUMENT_NODE)。
     - **nodeName**：节点名，元素大写（e.g.,DIV），#xxx 等。
     - **nodeValue**：返回字符串，节点文本值，可读写，text、comment、attr 有值，别的 null。div要读儿子的文本。
-    - **textContent**：返回自己和子孙的文本，忽略 HTML 标签。写入时对 HTML 标签转义。有节点该属性为 null。
+    - **textContent**：返回自己和子孙的文本，忽略 HTML 标签。写入时对 HTML 标签转义。有节点该属性为 null。和`innerText`（IE）有差异，innerText 不包括 style 标签、script 标签，不展示隐藏文本。
     - **baseURI**：字符串，网页绝对路径。只读。`<base>` > `window.location`。
     - **ownerDocument**：找出我的祖宗。顶层文档对象，即document对象。`document.ownerDocument === null`。
     - **nextSibling**：我后面的兄弟。包括文本节点和注释节点。空格也是兄弟。可用来遍历。
@@ -62,13 +62,14 @@ DOM 树：节点按所在层级，抽象成树状结构。
   - 方法
     - **appendChild**()：喜当爹，送你个娃。返回值是这个娃。例外：娃 是 DocumentFragment 时，自己查。
     - **hasChildNodes**()：布尔值，我有没有娃（还有2种方法）。
-    - **cloneNode**()：造一个同卵双胞胎。有唯一属性要改、监听\事件\回调 不能克隆。
+    - **cloneNode**(deep)：造一个同卵双胞胎。有唯一属性要改、监听\事件\回调 不能克隆。cloneNode(true) 深拷贝
     - **insertBefore**()：插入父节点内指定元素前。
-    - **removeChild**()：把这个儿子赶出家门。(把不是儿子的人赶出家门会报错)。
+    - **removeChild**()：把这个儿子赶出家门。(把不是儿子的人赶出家门会报错)。只是从页面上消失，还是存在于内存中的。
     - **replaceChild**()：辣鸡，我要换个人做儿子。
     - **contains**()：布尔值，看看我和子孙们上族谱了没。
     - **compareDocumentPosition**()：返回一个六个比特位的二进制值，表示参数节点与当前节点的关系。两人可能关系复杂，返回数值为总和，需与掩码 与运算，具体判断。
-    - **isEqualNode**()，**isSameNode**()：布尔值，是否相等。类型相同、属性相同、子节点相同。
+    - **isEqualNode**()，**isSameNode**()：布尔值，是否相等。类型相同、属性相同、子节点相同。equal 看起来相同，same 真的是同一个节点。
+    - **isEqualNode**()，**isSameNode**()：布尔值，是否相等。类型相同、属性相同、子节点相同。equal 看起来相同，same 真的是同一个节点。
     - **normalize**()：去除空文本节点，毗邻的文本节点合并。Text.splitText的逆方法。
     - **getRootNode**()：作用等于 ownerDocument，but，`document.getRootNode() // document`。
 
@@ -140,7 +141,7 @@ mdwoyaokantule
     - designMode：
     - implementation：
   - 方法（document.xxx）
-    - open()，close()：
+    - open()，close()：open -> write -> close,异步操作时，使用 document.write 容易把页面冲掉
     - write()，writeln()：
     - querySelector()，querySelectorAll()：
     - getElementsByTagName()：
