@@ -6,7 +6,7 @@ tags: jQuery
 
 ## 题目
 
-```
+```js
 window.jQuery = ???
 window.$ = jQuery
 
@@ -26,7 +26,7 @@ $div.setText('hi') // 可将所有 div 的 textContent 变为 hi
 3. setText：遍历 nodes，直接在每个节点写入 textContent。
 4. 一开始使用 for 循环遍历，querySelectorAll 获取到的为类数组对象，改成了 forEach 遍历，addClass、setText 函数内将 nodes 换成 this，感觉这样可以实现更松散的耦合。
    
-```
+```js
 window.jQuery = function (nodeOrSelector) {
   let nodes = document.querySelectorAll(nodeOrSelector)
   nodes.addClass = function (classes) {
@@ -54,7 +54,7 @@ window.jQuery = function (nodeOrSelector) {
 2. `let nodes = {}` -> `let nodes = { length: 0 }` 觉得既然是伪数组，那么一开始就要有 length 属性。
 3. 让节点的原型链纯净，只将需要的属性值赋给 nodes。
    
-```
+```js
 window.jQuery = function (nodeOrSelector) {
   let nodes = { length: 0 }
   // 传入字符串
@@ -85,7 +85,7 @@ window.jQuery = function (nodeOrSelector) {
 
 1. 遍历代码重复了，累赘，封装成函数
 
-```
+```js
 window.jQuery = function (nodeOrSelector) {
   let nodes = { length: 0 }
   // 传入1个节点

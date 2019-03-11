@@ -55,7 +55,7 @@ tags: DOM
 
 ## 六、自定义事件
 
-```
+```js
 var eve = new Event('custome');
 ev.addEventListener('custome', function(){
     console.log('custome');

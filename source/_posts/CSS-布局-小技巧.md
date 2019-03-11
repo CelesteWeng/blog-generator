@@ -40,7 +40,7 @@ html, body, ...{ //省略号代表包含items的标签
 
 #### margin + float
 
-```
+```html
 <div class="parent">
     <div class="left"><p>left</p></div>
     <div class="right-fix">
@@ -51,19 +51,22 @@ html, body, ...{ //省略号代表包含items的标签
 </div>
 ```
 
-```
- .left{
+```css
+.left {
     float: left;     //向左浮动
     width: 100px;    //固定宽度
-    position: relative;//由于.left与.right-fix重合，且.right-fix在DOM树上的位置比.left要后，因此.right-fix会遮挡住.left，设置.left为relative可以让其冒出来。
+    position: relative;
+    //由于.left与.right-fix重合，且.right-fix在DOM树上的位置比.left要后，因此.right-fix会遮挡住.left，设置.left为relative可以让其冒出来。
 }
-.right-fix{
+.right-fix {
     float: right;     //向右浮动
     width: 100%;    //为了自适应设为100%
-    margin-left: -100px;//由于宽度设为100%，.right-fix遭到浏览器换行处理；因此通过设置负的margin值，在左侧制造出100px的空白，使.right-fix与.left重合（即处于同一行）
+    margin-left: -100px;
+    //由于宽度设为100%，.right-fix遭到浏览器换行处理；因此通过设置负的margin值，在左侧制造出100px的空白，使.right-fix与.left重合（即处于同一行）
 }
-.right{
-    margin-left: 120px;    //由于.left和.right-fix重合了，因此给.right设置一个margin-left，避免内容区（.right）与.left重合。另外，120px - 100px = 多出来的20px实际上就相当于.left和.right之间的间隔了。
+.right {
+    margin-left: 120px;
+    //由于.left和.right-fix重合了，因此给.right设置一个margin-left，避免内容区（.right）与.left重合。另外，120px - 100px = 多出来的20px实际上就相当于.left和.right之间的间隔了。
 }
 ```
 
@@ -77,7 +80,7 @@ html, body, ...{ //省略号代表包含items的标签
 
 #### absolute
 
-```
+```html
 <div class="parent">
     <div class="left">
         <p>left</p>
@@ -89,7 +92,7 @@ html, body, ...{ //省略号代表包含items的标签
 </div>
 ```
 
-```
+```css
 .parent{
     position: relative;
 }
@@ -116,7 +119,7 @@ html, body, ...{ //省略号代表包含items的标签
 
 #### float + BFC
 
-```
+```html
 <div class="parent">
     <div class="left">
         <p>left</p>
@@ -128,7 +131,7 @@ html, body, ...{ //省略号代表包含items的标签
 </div>
 ```
 
-```
+```css
 .left{
     float: left;
     width: 100px;
@@ -151,7 +154,7 @@ html, body, ...{ //省略号代表包含items的标签
 
 #### table布局
 
-```
+```html
 <div class="parent">
     <div class="left">
         <p>left</p>
@@ -163,7 +166,7 @@ html, body, ...{ //省略号代表包含items的标签
 </div>
 ```
 
-```
+```css
 .parent{
     display: table; width: 100%;
     table-layout: fixed;
@@ -183,7 +186,7 @@ html, body, ...{ //省略号代表包含items的标签
 
 #### flex
 
-```
+```html
 <div class="parent">
     <div class="left">
         <p>left</p>
@@ -195,7 +198,7 @@ html, body, ...{ //省略号代表包含items的标签
 </div>
 ```
 
-```
+```css
 .parent{
     display: flex;
 }

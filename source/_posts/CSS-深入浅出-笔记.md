@@ -16,3 +16,17 @@ tags: CSS
 8. ![css-1-1.png](http://pntmc1hcw.bkt.clouddn.com/css-1-1.png) '你好'没有在浮动元素下，相当于文字环绕浮动图片
 9. <a href="https://www.google.com/search?q=CSS+3+generator" target="_blank">CSS 3 generator</a>
 10. <a href="//cndevdocs.com" target="_blank">cndevdocs.com</a>
+
+## 宽度与高度
+
+1. 元素的高度是行高决定的(单行)。
+
+    默认行高是字体设计师确定的，在字体文件中有。在自定义很小的行高（比如 1px）时有可能会失效。
+
+2. `&nbsp;`：no break space.
+
+3. `text-align: justify;`： 多行文字两边对齐。
+
+4. 如何让单行文字两边对齐？
+
+    ![text-align.png](http://pntmc1hcw.bkt.clouddn.com/text-align.png)

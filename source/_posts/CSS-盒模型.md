@@ -36,29 +36,29 @@ tags:
 
 1. 取较大值
 2. 利用如下实例说明
-```
-//父级 height:100px; 
-//子集 height：100px; 有 margin-top:10px;
-//且父级的背景色不显示
-<section id="sec"> 
-	<style>
-		#sec{
-			background: red;
-		}
-		.child{
-			height:100px;
-			margin-top:10px;
-			background:yellow;
-		}
-	</style>
-	<article class="child"></article>
-</section>
-```
-
+    ```html
+    //父级 height:100px; 
+    //子集 height：100px; 有 margin-top:10px;
+    //且父级的背景色不显示
+    <section id="sec"> 
+        <style>
+            #sec{
+                background: red;
+            }
+            .child{
+                height:100px;
+                margin-top:10px;
+                background:yellow;
+            }
+        </style>
+        <article class="child"></article>
+    </section>
     ```
+
+    ```html
     //父级高度变为 110px；
     // BFC(边距重叠解决方案)
-    <section id="sec"> 
+    <section id="sec">
         <style>
             #sec{
                 background: red;

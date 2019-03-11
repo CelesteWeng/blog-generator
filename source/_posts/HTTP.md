@@ -43,7 +43,7 @@ Content-Type: application/x-www-form-urlencoded
 
 ### 请求的格式
 
-```
+```json
 1 动词 路径 协议/版本
 2 Key1: value1
 2 Key2: value2
@@ -73,7 +73,7 @@ Content-Type: application/x-www-form-urlencoded
 
 ### 响应示例
 
-```
+```json
 HTTP/1.1 200 OK
 Accept-Ranges: bytes
 Cache-Control: private, no-cache, no-store, proxy-revalidate, no-transform
@@ -96,7 +96,7 @@ Set-Cookie: BDORZ=27315; max-age=86400; domain=.baidu.com; path=/
 
 ### 响应的格式
 
-```
+```json
 1 协议/版本号 状态码 状态解释
 2 Key1: value1
 2 Key2: value2

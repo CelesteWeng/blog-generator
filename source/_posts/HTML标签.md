@@ -93,7 +93,7 @@ tags: HTML
 
 下拉选择
 
-```
+```html
 <select name="group" multiple> // multiple 可多选
     <option value="">-</option>
     <option value="1">item1</option>
@@ -124,7 +124,7 @@ tags: HTML
 2. tbody 标签不写，浏览器会自动补上
 3. 表格边框的间隙默认有，不要则设置 table { border-collapse: collapse; }
 
-```
+```html
 <!-- table row 行 tr -->
 <!-- table data 数据 td -->
 <!-- table header 表头的标题 -->
