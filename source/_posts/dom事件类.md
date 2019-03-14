@@ -7,7 +7,7 @@ tags: DOM
 ## 一、基本概念：DOM事件的级别
 
 - 事件级别（DOM标准定义的级别）
-- DOM0 element.onclick = function(){}
+- DOM0 element.onclick = function(){} // 在 DOM1 标准产生之前就存在的事实规范
 - DOM2 element.addEventListener(‘click’,function(){},false)
 - 默认false，冒泡；true为捕获。
 - DOM3 element.addEventListener(‘keyup’,function(){},false)
@@ -64,3 +64,49 @@ ev.ispatchEvent(eve); //触发eve对象
 ```
 
 - CustomEvent和Event区别：CustomEvent还可以绑定obj参数，在用法上，两者一致。
+
+## 七、其他
+
+```js
+function print(){
+    console.log('hi')
+}
+```
+
+```
+onclick="要执行的代码"
+一旦用户点击，浏览器就 `eval("要执行的代码")`
+```
+
+```
+xxx.onclick = print // 等号两边都为事件
+// 写为 print() 为 undefined
+```
+---
+
+```js
+xxx.onclick = function(){} // 属性，唯一，只能有一个点击事件
+
+// 队列，先进先出，可以监听多个点击事件
+function f1() {
+    console.log(1)
+    // xxx.removeEventListener('click', f1()), one, 只执行一次
+}
+xxx.addEventListener('click', f1())
+```
+---
+
+![capture.png](http://pntmc1hcw.bkt.clouddn.com/capture.png)
+最后的子元素同时有捕获和冒泡，则看代码写的顺序执行；
+一般为先捕获，后冒泡。
+
+---
+
+用户有没有看当前页面(自动轮播时，bug，不看该页面时，定时器会偷懒)
+
+```js
+document.addEventListener('visbilitychange', function(e){
+    console.log(document.hidden)
+})
+```
+
