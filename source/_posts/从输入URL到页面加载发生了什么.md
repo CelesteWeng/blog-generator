@@ -78,7 +78,7 @@ tags:
 1. [页面性能管理——阮一峰](http://www.ruanyifeng.com/blog/2015/09/web-page-performance-in-depth.html)（页面生成过程、性能优化等）
 2. [Chrome Devtool Performance 使用指南（译文）](https://zhuanlan.zhihu.com/p/29879682)（原timeline）
 3. [TLS/SSL握手过程——阮一峰](http://www.ruanyifeng.com/blog/2014/09/illustration-ssl.html)
-4. 关于该问题的两篇博客，：
+4. 关于该问题的两篇博客：
     [从输入URL到页面加载发生了什么 1](https://zhuanlan.zhihu.com/p/23155051)（这篇条理清晰，对于渲染略过了，可以结合第二篇、资料1）
     [从输入URL到页面加载发生了什么 2](https://segmentfault.com/a/1190000006879700)（比上者更优之处：DNS 解析图、HTTP 请求）单词错误：repain => repaint
     关于 TCP 两篇都没怎么说，详见 资料6
