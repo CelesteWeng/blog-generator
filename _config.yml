@@ -8,10 +8,10 @@ include:
 # Site
 title: Celeste's Blog
 subtitle: 
-description: 不会游泳的咸鱼
+description: 前端，学习中
 keywords:
 author: Celeste Weng
-language:
+language: zh-Hans
 timezone:
 
 # URL
@@ -76,7 +76,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: yilia
+theme: next
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
@@ -102,3 +102,10 @@ jsonContent:
       excerpt: false
       categories: false
       tags: true
+
+# Local Search
+search:
+    path: search.xml
+    field: post
+    format: html
+    limit: 10000
