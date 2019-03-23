@@ -1,11 +1,13 @@
 ---
-title: 无分类笔记（解构赋值、立即执行函数、闭包、MVC）
+title: 无分类笔记（解构赋值、立即执行函数、闭包、MVC、Promise）
 date: 2019-03-16 13:10:02
 tags: 
 - 解构赋值
 - 使用立即执行函数
 - 使用闭包
 - MVC
+- Promise
+- 封装 jQuery.ajax
 ---
 
 #### ES6 解构赋值
@@ -107,24 +109,25 @@ myButton.addEventListener('click', (e) => {
 
 ```js
 // 自己封装 jQuery.ajax 满足 Promise 规则
-window.jQuery.ajax = function({url, method, body, headers}){
-  return new Promise(function(resolve, reject){
-    let request = new XMLHttpRequest()
-    request.open(method, url)
-    for (let key in headers) {
-      let vaule = headers[key]
-      request.setRequestHeader(key, value)
-    }
-    request.onreadystatechange = () => {
-      if (request.readyState === 4) {
-        if (request.status >= 200 && request.status < 300) {
-          resolve.call(undefined, request.responseText)
-        } else if (request.status >= 400) {
-          reject.call(undefined, request)
+window.jQuery.ajax = function({ url, method, body, headers }) {
+    return new Promise(function(resolve, reject) {
+        let request = new XMLHttpRequest()
+        request.open(method, url)
+        for (let key in headers) {
+            let value = headers[key]
+            request.setRequestHeader(key, value)
         }
-      }
-    request.send()
-  })
+        request.onreadystatechange = () => {
+            if (request.readyState === 4) {
+                if (request.status >= 200 && request.status < 300) {
+                    resolve.call(undefined, request.responseText)
+                } else if (request.status >= 400) {
+                    reject.call(undefined, request)
+                }
+            }
+            request.send()
+        }
+    })
 }
 ```
 
@@ -311,3 +314,84 @@ MVC 将代码分成三块：
 
 Model 和服务器交互，Model 将得到的数据交给 Controller，Controller 把数据填入 View，并监听 View
 用户操作 View，如点击按钮，Controller 就会接受到点击事件，Controller 这时会去调用 Model，Model 会与服务器交互，得到数据后返回给 Controller，Controller 得到数据就去更新 View。
+
+MVC模式是软件工程中一种软件架构模式，一般把软件模式分为三部分，模型(Model)+视图(View)+控制器(Controller);
+  
+  模型：模型用于封装与应用程序的业务逻辑相关的数据以及对数据处理的方法。模型有对数据直接访问的权利。模型不依赖 “视图” 和 “控制器”, 也就是说 模型它不关心页面如何显示及如何被操作.
+  
+  视图：视图层最主要的是监听模型层上的数据改变，并且实时的更新html页面。当然也包括一些事件的注册或者ajax请求操作(发布事件),都是放在视图层来完成。
+  
+  控制器：控制器接收用户的操作，最主要是订阅视图层的事件，然后调用模型或视图去完成用户的操作;比如：当页面上触发一个事件，控制器不输出任何东西及对页面做任何处理; 它只是接收请求并决定调用模型中的那个方法去处理请求, 然后再确定调用那个视图中的方法来显示返回的数据。
+
+
+1. 前端 MVC 是什么？
+
+  答：MVC模式是软件工程中一种软件架构模式，一般把软件模式分为三部分，模型(Model)+视图(View)+控制器(Controller)
+    
+  **模型**：模型用于封装与应用程序的业务逻辑相关的数据以及对数据处理的方法。模型有对数据直接访问的权利。模型不依赖 “视图” 和 “控制器”, 也就是说 模型它不关心页面如何显示及如何被操作.
+  
+  **视图**：视图层最主要的是监听模型层上的数据改变，并且实时的更新html页面。当然也包括一些事件的注册或者ajax请求操作(发布事件),都是放在视图层来完成。
+  
+  **控制器**：控制器接收用户的操作，最主要是订阅视图层的事件，然后调用模型或视图去完成用户的操作比如：当页面上触发一个事件，控制器不输出任何东西及对页面做任何处理 它只是接收请求并决定调用模型中的那个方法去处理请求, 然后再确定调用那个视图中的方法来显示返回的数据。
+
+2. 请用代码大概说明 MVC 三个对象分别有哪些重要属性和方法。
+
+```js
+/*
+View('.xxx')
+*/
+window.View = function (selector) {
+  return document.querySelector(selector)
+}
+```
+
+```js
+/*
+Model({
+  'resourceName': xxx
+})
+*/
+window.Model = function(object) {
+    let resourceName = object.resourceName
+    return {
+        init: function() {},
+        fetch: function() {},
+        save: function(object) {}
+    }
+}
+```
+
+```js
+/*
+Controller({
+    init: function(view, model) {
+        this.view = xxx
+        this.model = xxx
+        this.xxx()
+        this.yyy()
+    },
+    xxx: function() {},
+    yyy: function() {}
+})
+*/
+window.Controller = function(options) {
+    let init = options.init
+    let object = {
+        view: null,
+        model: null,
+        init: function(view, model) {
+            this.view = view
+            this.model = model
+            this.model.init()
+            init.call(this, view, model)
+            // this.bindEvents.call(this)
+        }
+    }
+    for (let key in options) {
+        if (key !== 'init') {
+            object[key] = options[key]
+        }
+    }
+    return object
+}
+```

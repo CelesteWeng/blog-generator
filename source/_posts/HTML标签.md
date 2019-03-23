@@ -163,4 +163,9 @@ tags: HTML
 </table>
 ```
 
+## pre 标签 （preview）
+
+该标签中的文本，保留原有格式；
+`<pre>`标签中可以加标签
+
 <a href="http://www.w3school.com.cn/html5/html5_reference.asp" title="HTML 5 参考手册">HTML5 新标签 完整列表>></a>
