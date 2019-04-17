@@ -113,3 +113,87 @@ tags:
 
 1. 安装 `npm i -g git-open`
 2. 在目录运行 `git open`，直接打开 github 对应页面
+
+## Vue 知识点
+
+### slot 插槽
+
+1. 不能加class，可用标签包起来
+2. 出现 Build Error，用标签包起来
+
+### props 传参
+
+```js
+// props: ['icon', 'iconPosition']
+props: {
+    icon: {},
+    iconPosition: {
+        type: String,
+        default: 'left',
+        validator(value) {
+            return value === 'left' && value === 'right'
+        }
+    }
+}
+```
+
+### $emit
+
+在模版中不需要写 `this`
+
+```html
+<button @click="$emit('yyy')"></button>
+```
+
+```js
+<button @click="xxx"></button>
+
+methods: {
+    xxx() {
+        this.$emit('yyy')
+    }
+}
+```
+
+### mounted
+
+当改组件出现在页面的时候，会触发的一个函数
+
+### $children
+
+vue 的 $children 属性只会去找 vue 的实例，所以 div 等标签会被忽略
+
+### $el.children
+
+和 $children 相比，该属性可以找到 vue 实例之外的标签
+
+### 遍历 node
+
+```js
+// 并非 for in
+for(let node of xxx) {}
+```
+
+### 全局 API
+
+#### Vue.expend(options)
+
+options 为包含组件选项的对象
+
+## 单元测试
+
+- BDD Behavior-Driven Development(行为 驱动 开发)
+- TDD Test-Driven Development(测试 驱动 开发)
+- Assert 断言(我主观认为，`consolo.assert(xxx)` 就是断言，若 xxx 为假则会报错)
+
+### Chai.js
+
+让断言更加方便，提供三种方法：
+
+1. Should
+2. Expect
+3. Assert
+
+#### chai.spies
+
+mock，单元测试，断言，监听事件时可用
